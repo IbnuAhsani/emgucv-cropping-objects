@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using Emgu.CV;
 using Emgu.CV.Structure;
+using Emgu.CV.Util;
 
 namespace EMGU_Cropping_Objects_Test
 {
@@ -62,6 +63,53 @@ namespace EMGU_Cropping_Objects_Test
                 rightPictureBox.Image = temp.Bitmap;
             }
             catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void leftPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(connectedComponents == null)
+            {
+                return;
+            }
+
+            try
+            {
+                //  Get the label from the mouse click
+                int label = (int) connectedComponents[e.Y, e.X].Intensity;
+
+                // Make sure that the object clicked is not a background
+                if(label != 0)
+                {
+                    //  Get the image that has the same pixel intensity as the pixel that's clicked
+                    var temp = connectedComponents.InRange(new Gray(label), new Gray(label));
+
+                    //  Get countours of that object
+                    VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
+                    Mat hierarchy = new Mat();
+
+                    //  Get the external contours and only the important data points are retrieved (instead of the redundant)
+                    CvInvoke.FindContours(temp, contours, hierarchy, Emgu.CV.CvEnum.RetrType.External, 
+                        Emgu.CV.CvEnum.ChainApproxMethod.ChainApproxSimple);
+
+                    if(contours.Size > 0)
+                    {
+                        Rectangle boundingBox = CvInvoke.BoundingRectangle(contours[0]);
+
+                        //  Copy the original input that's located within the bounding box
+                        imageInput.ROI = boundingBox;
+
+                        var img = imageInput.Copy();
+
+                        imageInput.ROI = Rectangle.Empty;
+
+                        rightPictureBox.Image = img.Bitmap;
+                    }
+                }
+            }
+            catch(Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
