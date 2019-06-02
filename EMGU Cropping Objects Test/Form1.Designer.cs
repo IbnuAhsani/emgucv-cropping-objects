@@ -45,6 +45,7 @@
             this.leftPictureBox.Location = new System.Drawing.Point(12, 48);
             this.leftPictureBox.Name = "leftPictureBox";
             this.leftPictureBox.Size = new System.Drawing.Size(380, 390);
+            this.leftPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.leftPictureBox.TabIndex = 0;
             this.leftPictureBox.TabStop = false;
             // 
@@ -53,6 +54,7 @@
             this.rightPictureBox.Location = new System.Drawing.Point(407, 48);
             this.rightPictureBox.Name = "rightPictureBox";
             this.rightPictureBox.Size = new System.Drawing.Size(380, 390);
+            this.rightPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.rightPictureBox.TabIndex = 1;
             this.rightPictureBox.TabStop = false;
             // 
@@ -79,21 +81,21 @@
             // fileToolStripMenuItem1
             // 
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.fileToolStripMenuItem1.Text = "File";
             this.fileToolStripMenuItem1.Click += new System.EventHandler(this.fileToolStripMenuItem1_Click);
             // 
             // processToolStripMenuItem
             // 
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
-            this.processToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.processToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.processToolStripMenuItem.Text = "Process";
             this.processToolStripMenuItem.Click += new System.EventHandler(this.processToolStripMenuItem_Click);
             // 
             // cropToolStripMenuItem
             // 
             this.cropToolStripMenuItem.Name = "cropToolStripMenuItem";
-            this.cropToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cropToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.cropToolStripMenuItem.Text = "Crop";
             // 
             // Form1
