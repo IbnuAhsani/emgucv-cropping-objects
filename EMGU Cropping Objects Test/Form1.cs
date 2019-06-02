@@ -33,25 +33,5 @@ namespace EMGU_Cropping_Objects_Test
                 leftPictureBox.Image = imageInput.Bitmap;
             }
         }
-
-        private void processToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(imageInput == null)
-            {
-                return;
-            }
-
-            try
-            {
-                var temp = imageInput.Convert<Gray, byte>().ThresholdBinary(new Gray(100), new Gray(255))
-                            .Dilate(1).Erode(1);
-                
-
-                    
-            } catch(Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
     }
 }
