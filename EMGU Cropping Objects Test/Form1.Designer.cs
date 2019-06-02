@@ -45,16 +45,15 @@
             this.leftPictureBox.Location = new System.Drawing.Point(12, 48);
             this.leftPictureBox.Name = "leftPictureBox";
             this.leftPictureBox.Size = new System.Drawing.Size(380, 390);
-            this.leftPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.leftPictureBox.TabIndex = 0;
             this.leftPictureBox.TabStop = false;
+            this.leftPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.leftPictureBox_MouseClick);
             // 
             // rightPictureBox
             // 
             this.rightPictureBox.Location = new System.Drawing.Point(407, 48);
             this.rightPictureBox.Name = "rightPictureBox";
             this.rightPictureBox.Size = new System.Drawing.Size(380, 390);
-            this.rightPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.rightPictureBox.TabIndex = 1;
             this.rightPictureBox.TabStop = false;
             // 
